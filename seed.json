@@ -1,0 +1,196 @@
+{
+  "users": [
+    {
+      "uid": "demo-user-1",
+      "name": "Alex Johnson",
+      "email": "alex.johnson@example.com",
+      "photoUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+      "role": "user",
+      "createdAt": "2024-01-15T10:00:00Z",
+      "lastSeenAt": "2024-01-20T14:30:00Z"
+    },
+    {
+      "uid": "demo-user-2",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@example.com",
+      "photoUrl": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150",
+      "role": "user",
+      "createdAt": "2024-01-10T09:15:00Z",
+      "lastSeenAt": "2024-01-20T16:45:00Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "userId": "demo-user-1",
+      "title": "Complete Math Homework",
+      "description": "Finish calculus problems 1-20 from chapter 5",
+      "dueDate": "2024-01-25T23:59:00Z",
+      "priority": "high",
+      "category": "Mathematics",
+      "status": "todo",
+      "progress": 0,
+      "createdAt": "2024-01-20T10:00:00Z"
+    },
+    {
+      "id": "task-2",
+      "userId": "demo-user-1",
+      "title": "Read History Chapter",
+      "description": "Read chapter 12 on World War II",
+      "dueDate": "2024-01-23T18:00:00Z",
+      "priority": "medium",
+      "category": "History",
+      "status": "in_progress",
+      "progress": 60,
+      "createdAt": "2024-01-18T14:30:00Z"
+    },
+    {
+      "id": "task-3",
+      "userId": "demo-user-2",
+      "title": "Science Lab Report",
+      "description": "Write lab report on chemical reactions experiment",
+      "dueDate": "2024-01-26T12:00:00Z",
+      "priority": "high",
+      "category": "Science",
+      "status": "todo",
+      "progress": 25,
+      "createdAt": "2024-01-19T11:15:00Z"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "assignment-1",
+      "userId": "demo-user-1",
+      "title": "English Essay",
+      "subject": "English Literature",
+      "due": "2024-01-28T23:59:00Z",
+      "status": "in_progress",
+      "progress": 40,
+      "grade": null,
+      "notes": "Focus on character development in Shakespeare",
+      "files": ["essay-draft.docx", "research-notes.pdf"]
+    },
+    {
+      "id": "assignment-2",
+      "userId": "demo-user-2",
+      "title": "Physics Problem Set",
+      "subject": "Physics",
+      "due": "2024-01-24T15:30:00Z",
+      "status": "not_started",
+      "progress": 0,
+      "grade": null,
+      "notes": "Problems 1-15 from textbook chapter 8",
+      "files": []
+    }
+  ],
+  "habits": [
+    {
+      "id": "habit-1",
+      "userId": "demo-user-1",
+      "name": "Morning Reading",
+      "description": "Read for 30 minutes every morning",
+      "category": "Learning",
+      "frequency": "daily",
+      "streak": 7,
+      "completedToday": true,
+      "lastCompleted": "2024-01-20T08:30:00Z",
+      "createdAt": "2024-01-13T07:00:00Z"
+    },
+    {
+      "id": "habit-2",
+      "userId": "demo-user-2",
+      "name": "Exercise",
+      "description": "30 minutes of physical activity",
+      "category": "Health",
+      "frequency": "daily",
+      "streak": 12,
+      "completedToday": false,
+      "lastCompleted": "2024-01-19T17:00:00Z",
+      "createdAt": "2024-01-08T06:00:00Z"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "schedule-1",
+      "userId": "demo-user-1",
+      "title": "Math Class",
+      "date": "2024-01-22T00:00:00Z",
+      "start": "09:00",
+      "end": "10:30",
+      "category": "Class",
+      "location": "Room 205",
+      "notes": "Bring calculator and textbook",
+      "priority": "high",
+      "reminder": "15min"
+    },
+    {
+      "id": "schedule-2",
+      "userId": "demo-user-2",
+      "title": "Study Group",
+      "date": "2024-01-23T00:00:00Z",
+      "start": "14:00",
+      "end": "16:00",
+      "category": "Study",
+      "location": "Library",
+      "notes": "Physics exam preparation",
+      "priority": "medium",
+      "reminder": "30min"
+    }
+  ],
+  "study_sessions": [
+    {
+      "id": "session-1",
+      "userId": "demo-user-1",
+      "mode": "25min",
+      "startTime": "2024-01-20T14:00:00Z",
+      "endTime": "2024-01-20T14:25:00Z",
+      "status": "completed",
+      "notes": "Focused on calculus derivatives"
+    },
+    {
+      "id": "session-2",
+      "userId": "demo-user-2",
+      "mode": "60min",
+      "startTime": "2024-01-20T15:00:00Z",
+      "endTime": null,
+      "status": "active",
+      "notes": "Physics problem solving session"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "expense-1",
+      "userId": "demo-user-1",
+      "date": "2024-01-18T00:00:00Z",
+      "category": "Books",
+      "amount": 45.99,
+      "note": "Chemistry textbook"
+    },
+    {
+      "id": "expense-2",
+      "userId": "demo-user-2",
+      "date": "2024-01-20T00:00:00Z",
+      "category": "Supplies",
+      "amount": 23.75,
+      "note": "Lab notebook and pens"
+    }
+  ],
+  "config": [
+    {
+      "appId": "student-productivity-app",
+      "branding": {
+        "name": "StudyFlow",
+        "logo": "/logo.png",
+        "primaryColor": "#3B82F6",
+        "secondaryColor": "#1E40AF"
+      },
+      "defaults": {
+        "taskPriority": "medium",
+        "studySessionMode": "25min",
+        "reminderTime": "15min",
+        "theme": "light"
+      },
+      "createdAt": "2024-01-01T00:00:00Z"
+    }
+  ]
+}

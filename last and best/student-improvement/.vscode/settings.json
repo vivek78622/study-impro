@@ -1,0 +1,13 @@
+{
+    // Allow Amazon Q feature development to run code and tests (agentic behavior)
+    // Use an object so VS Code's settings schema is satisfied. The extension should read
+    // this and allow the UI toggle to enable agentic features.
+    "amazonQ.allowFeatureDevelopmentToRunCodeAndTests": {
+        "enabled": true
+    },
+    // Re-enable the chat consent prompts so you can see and accept the agentic toggle in the UI
+    "amazonQ.suppressPrompts": {
+        "amazonQChatDisclaimer": false,
+        "amazonQChatPairProgramming": false
+    }
+}

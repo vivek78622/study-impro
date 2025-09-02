@@ -1,0 +1,109 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function isValidTaskStatus(status) {
+      return status in ["todo", "in_progress", "done"];
+    }
+    
+    function isValidTaskPriority(priority) {
+      return priority in ["low", "medium", "high"];
+    }
+    
+    function isValidAssignmentStatus(status) {
+      return status in ["not_started", "in_progress", "done"];
+    }
+    
+    function isValidStudySessionMode(mode) {
+      return mode in ["25min", "60min"];
+    }
+    
+    function isValidStudySessionStatus(status) {
+      return status in ["active", "completed"];
+    }
+    
+    // Users collection
+    match /users/{uid} {
+      allow read, write: if isAuthenticated() && isOwner(uid);
+    }
+    
+    // Tasks collection
+    match /tasks/{taskId} {
+      allow read, write: if isAuthenticated() && 
+        isOwner(resource.data.userId) &&
+        (request.resource == null || (
+          isOwner(request.resource.data.userId) &&
+          isValidTaskStatus(request.resource.data.status) &&
+          isValidTaskPriority(request.resource.data.priority) &&
+          request.resource.data.keys().hasAll(['userId', 'title', 'status', 'priority'])
+        ));
+    }
+    
+    // Assignments collection
+    match /assignments/{assignmentId} {
+      allow read, write: if isAuthenticated() && 
+        isOwner(resource.data.userId) &&
+        (request.resource == null || (
+          isOwner(request.resource.data.userId) &&
+          isValidAssignmentStatus(request.resource.data.status) &&
+          request.resource.data.keys().hasAll(['userId', 'title', 'subject', 'status'])
+        ));
+    }
+    
+    // Habits collection
+    match /habits/{habitId} {
+      allow read, write: if isAuthenticated() && 
+        isOwner(resource.data.userId) &&
+        (request.resource == null || (
+          isOwner(request.resource.data.userId) &&
+          request.resource.data.keys().hasAll(['userId', 'name', 'frequency'])
+        ));
+    }
+    
+    // Schedule collection
+    match /schedule/{scheduleId} {
+      allow read, write: if isAuthenticated() && 
+        isOwner(resource.data.userId) &&
+        (request.resource == null || (
+          isOwner(request.resource.data.userId) &&
+          request.resource.data.keys().hasAll(['userId', 'title', 'date'])
+        ));
+    }
+    
+    // Study sessions collection
+    match /study_sessions/{sessionId} {
+      allow read, write: if isAuthenticated() && 
+        isOwner(resource.data.userId) &&
+        (request.resource == null || (
+          isOwner(request.resource.data.userId) &&
+          isValidStudySessionMode(request.resource.data.mode) &&
+          isValidStudySessionStatus(request.resource.data.status) &&
+          request.resource.data.keys().hasAll(['userId', 'mode', 'status'])
+        ));
+    }
+    
+    // Expenses collection
+    match /expenses/{expenseId} {
+      allow read, write: if isAuthenticated() && 
+        isOwner(resource.data.userId) &&
+        (request.resource == null || (
+          isOwner(request.resource.data.userId) &&
+          request.resource.data.keys().hasAll(['userId', 'date', 'category', 'amount'])
+        ));
+    }
+    
+    // Config collection - read-only for all authenticated users
+    match /config/{configId} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+  }
+}

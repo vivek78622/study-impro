@@ -1,0 +1,103 @@
+{
+  "config": {
+    "appId": "student-productivity-app",
+    "branding": {
+      "name": "StudyFlow",
+      "primaryColor": "#22C1A3",
+      "secondaryColor": "#ADD8E6",
+      "logo": "/logo.png"
+    },
+    "defaults": {
+      "pomodoroLength": 25,
+      "breakLength": 5,
+      "dailyGoal": 4,
+      "theme": "light"
+    }
+  },
+  "demoUser": {
+    "uid": "demo-user-123",
+    "name": "Demo Student",
+    "email": "demo@studyflow.com",
+    "photoUrl": null,
+    "role": "user",
+    "demo": true
+  },
+  "sampleTasks": [
+    {
+      "title": "Complete Biology Assignment",
+      "description": "Research and write about cellular respiration",
+      "priority": "high",
+      "category": "Biology",
+      "status": "todo",
+      "progress": 0,
+      "demo": true
+    },
+    {
+      "title": "Math Problem Set 5",
+      "description": "Solve calculus problems 1-20",
+      "priority": "medium",
+      "category": "Mathematics",
+      "status": "in_progress",
+      "progress": 60,
+      "demo": true
+    }
+  ],
+  "sampleAssignments": [
+    {
+      "title": "Physics Lab Report",
+      "subject": "Physics",
+      "status": "not_started",
+      "progress": 0,
+      "grade": "",
+      "notes": "Pendulum experiment analysis",
+      "files": [],
+      "demo": true
+    }
+  ],
+  "sampleHabits": [
+    {
+      "name": "Morning Reading",
+      "description": "Read for 30 minutes every morning",
+      "category": "Study",
+      "frequency": "Daily",
+      "streak": 5,
+      "completedToday": false,
+      "demo": true
+    }
+  ],
+  "sampleSchedule": [
+    {
+      "title": "Physics Class",
+      "start": "09:00",
+      "end": "10:30",
+      "category": "Classes",
+      "location": "Room 203",
+      "notes": "Optics chapter",
+      "priority": "high",
+      "reminder": "15min",
+      "demo": true
+    }
+  ],
+  "sampleExpenses": [
+    {
+      "category": "Food",
+      "amount": 12.50,
+      "note": "Lunch at cafeteria",
+      "demo": true
+    },
+    {
+      "category": "Books",
+      "amount": 45.00,
+      "note": "Physics textbook",
+      "demo": true
+    }
+  ],
+  "sampleStudySessions": [
+    {
+      "mode": "25min",
+      "status": "completed",
+      "notes": "Focused on biology chapter 3",
+      "demo": true
+    }
+  ]
+}
